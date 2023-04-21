@@ -5,11 +5,36 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/stils.css" >
+
+
+
+<title>Gaidot dzimšanas dienu</title>
+        <meta charset="UTF-8">
+       <script type="text/javascript">
+    function dienas() {
+        var tagad = new Date();
+        var gads = parseInt(document.getElementById("gads").value);
+        var menesis = parseInt(document.getElementById("menesis").value) - 1; 
+        var datums = parseInt(document.getElementById("datums").value);
+        var dzimsanasDatums = new Date(gads, menesis, datums);
+dzimsanasDatums.setFullYear(tagad.getFullYear()); 
+if (dzimsanasDatums < tagad) {
+    dzimsanasDatums.setFullYear(tagad.getFullYear() + 1); 
+}
+        var dienasLidzDzimsanasDienai = Math.round((dzimsanasDatums - tagad) / (1000 * 60 * 60 * 24));
+document.getElementById("dienas").value = dienasLidzDzimsanasDienai;
+}
+        </script>
+
+
+
+
 </head>
 <body>
 
 <header>
   <h2>Rīgas Valsts 1. ģimnāzija</h2>
+  
 </header>
 
 <section>
@@ -62,7 +87,7 @@ Zināmie skolas vadītāji (1229—1804)
     
      
     <tr>
-        <th>gadi</th>  <th>vaditaji</th>
+        <th>Gadi</th>  <th>Vadītāji</th>
     </tr>
     
     <tr>
@@ -105,14 +130,37 @@ Zināmie skolas vadītāji (1229—1804)
 </table> 
 Skolas absolventi
 </p>
+
   </article>
 </section>
+    
+    
+    
+    <h1>Gaidot dzimšanas dienu</h1>
+<hr>
+<form>
+    <p>Ievadi pilnu datumu, kad Tev būs tuvākā dzimšanas diena:</p>
+<label for="gads">gads:</label>
+<input type="text" id="gads" name="gads"><br>
+<label for="menesis">mēnesis:</label>
+<input type="text" id="menesis" name="menesis"><br>
+<label for="datums">diena:</label>
+<input type="text" id="datums" name="datums"><br>
+<button type="button" id="poga" name="poga" value="Aprēķināt dienu skaitu līdz dzimšanas dienai" onclick="dienas();">Aprēķināt</button>
+</form>
+<p>Līdz svētkiem atlikušas <input type="text" id="dienas" name="dienas"> dienas  :  ))</p>
+
+
+
 
 <footer>
-  <p>Footer</p>
-  <a href="default.asp">
-<img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;">
+  <p></p>
+ 
+
+<a href="http://r1g.edu.lv/v/index/">
+  <img src="https://i5.ifrype.com/business/343/785/v1317048889/ngm_13343785.jpg" alt="Links uz skolas ml" style="width:200px;height:200px;">
 </a>
+
 </footer>
 
 </body>
